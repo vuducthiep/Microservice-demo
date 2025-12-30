@@ -12,15 +12,15 @@ spring:
     gateway:
       routes:
         - id: book-service
-          uri: https://book-service-production-c5b7.up.railway.app
+          uri: http://book-service-production-c5b7.up.railway.app
           predicates:
             - Path=/api/books/**
         - id: order-service
-          uri: https://order-service-production-bfde.up.railway.app
+          uri: http://order-service-production-bfde.up.railway.app
           predicates:
             - Path=/api/orders/**
         - id: user-service
-          uri: https://user-service-production-02c9.up.railway.app
+          uri: http://user-service-production-02c9.up.railway.app
           predicates:
             - Path=/api/users/**
 
