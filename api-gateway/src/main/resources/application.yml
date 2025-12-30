@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: api-gateway
+  webflux:
+    httpclient:
+      ssl:
+        useInsecureTrustManager: true
   cloud:
     gateway:
       routes:
