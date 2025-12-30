@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = 'http://localhost:8080';
+const API_BASE_URL = 'https://api-gateway-production-637d.up.railway.app';
 
 // API Helper Functions
 const api = {
