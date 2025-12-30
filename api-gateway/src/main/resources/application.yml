@@ -11,20 +11,14 @@ spring:
           uri: https://book-service-production-c5b7.up.railway.app
           predicates:
             - Path=/api/books/**
-          filters:
-            - RewritePath=/api/books/(?<segment>.*), /api/books/$\{segment}
         - id: order-service
           uri: https://order-service-production-bfde.up.railway.app
           predicates:
             - Path=/api/orders/**
-          filters:
-            - RewritePath=/api/orders/(?<segment>.*), /api/orders/$\{segment}
         - id: user-service
           uri: https://user-service-production-02c9.up.railway.app
           predicates:
             - Path=/api/users/**
-          filters:
-            - RewritePath=/api/users/(?<segment>.*), /api/users/$\{segment}
 
 eureka:
   client:
