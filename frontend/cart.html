@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng - BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>📚 BookStore</h1>
+                <nav>
+                    <a href="index.html">Trang chủ</a>
+                    <a href="books.html">Sách</a>
+                    <a href="cart.html" class="active">Giỏ hàng <span id="cart-count" class="badge">0</span></a>
+                    <a href="login.html" id="auth-link">Đăng nhập</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Content -->
+    <section class="cart-section">
+        <div class="container">
+            <h2>🛒 Giỏ hàng của bạn</h2>
+
+            <div id="cart-content">
+                <!-- Cart items will be loaded here -->
+            </div>
+
+            <div id="cart-empty" class="empty-cart" style="display:none;">
+                <h3>Giỏ hàng trống</h3>
+                <p>Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+                <a href="books.html" class="btn btn-primary">Tiếp tục mua sắm</a>
+            </div>
+
+            <div id="cart-summary" class="cart-summary" style="display:none;">
+                <div class="summary-row">
+                    <span>Tổng tiền:</span>
+                    <span id="cart-total" class="total-price">0 đ</span>
+                </div>
+                <div class="checkout-actions">
+                    <button onclick="clearCart()" class="btn btn-secondary">Xóa giỏ hàng</button>
+                    <button onclick="proceedToCheckout()" class="btn btn-primary">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCheckoutModal()">&times;</span>
+            <h2>Xác nhận đơn hàng</h2>
+            <form onsubmit="handleCheckout(event)">
+                <div class="form-group">
+                    <label>Địa chỉ giao hàng</label>
+                    <textarea id="shipping-address" required placeholder="Nhập địa chỉ đầy đủ"></textarea>
+                </div>
+                <div id="checkout-error" class="error-message"></div>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeCheckoutModal()" class="btn btn-secondary">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Đặt hàng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <h2>✅ Đặt hàng thành công!</h2>
+            <p>Cảm ơn bạn đã mua hàng. Đơn hàng của bạn đang được xử lý.</p>
+            <button onclick="closeSuccessModal()" class="btn btn-primary">OK</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BookStore Microservices. Made with Spring Boot ❤️</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/cart-page.js"></script>
+</body>
+
+</html>

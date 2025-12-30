@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sách - BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>📚 BookStore</h1>
+                <nav>
+                    <a href="index.html">Trang chủ</a>
+                    <a href="books.html" class="active">Sách</a>
+                    <a href="cart.html">Giỏ hàng <span id="cart-count" class="badge">0</span></a>
+                    <a href="login.html" id="auth-link">Đăng nhập</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search & Filter -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Tìm kiếm sách theo tên, tác giả...">
+                <button onclick="searchBooks()" class="btn btn-primary">Tìm kiếm</button>
+            </div>
+            <div class="filter-buttons">
+                <button onclick="filterBooks('all')" class="btn btn-filter active" data-filter="all">Tất cả</button>
+                <button onclick="filterBooks('Programming')" class="btn btn-filter"
+                    data-filter="Programming">Programming</button>
+                <button onclick="filterBooks('Java')" class="btn btn-filter" data-filter="Java">Java</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books List -->
+    <section class="books-section">
+        <div class="container">
+            <h2>Danh sách sách</h2>
+            <div id="books-list" class="book-grid">
+                <div class="loading">Đang tải sách...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BookStore Microservices. Made with Spring Boot ❤️</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/books.js"></script>
+</body>
+
+</html>

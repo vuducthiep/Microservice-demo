@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore - Cửa hàng sách trực tuyến</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>📚 BookStore</h1>
+                <nav>
+                    <a href="index.html" class="active">Trang chủ</a>
+                    <a href="books.html">Sách</a>
+                    <a href="cart.html">Giỏ hàng <span id="cart-count" class="badge">0</span></a>
+                    <a href="login.html" id="auth-link">Đăng nhập</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Chào mừng đến với BookStore</h2>
+            <p>Khám phá hàng ngàn đầu sách hay về lập trình và công nghệ</p>
+            <a href="books.html" class="btn btn-primary">Xem sách ngay</a>
+        </div>
+    </section>
+
+    <!-- Featured Books -->
+    <section class="featured">
+        <div class="container">
+            <h2>Sách nổi bật</h2>
+            <div id="featured-books" class="book-grid">
+                <div class="loading">Đang tải...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Danh mục</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="filterByCategory('Programming')">
+                    <h3>💻 Programming</h3>
+                    <p>Lập trình cơ bản & nâng cao</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Java')">
+                    <h3>☕ Java</h3>
+                    <p>Spring Boot & Java Core</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('all')">
+                    <h3>📖 Tất cả</h3>
+                    <p>Xem toàn bộ sách</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BookStore Microservices. Made with Spring Boot ❤️</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>

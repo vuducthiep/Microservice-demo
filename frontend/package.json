@@ -1,0 +1,17 @@
+{
+    "name": "bookstore-frontend",
+    "version": "1.0.0",
+    "description": "BookStore Frontend - Simple HTML/CSS/JS application",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "serve": "python -m http.server 3000"
+    },
+    "keywords": [
+        "bookstore",
+        "frontend",
+        "microservices"
+    ],
+    "author": "",
+    "license": "MIT"
+}
