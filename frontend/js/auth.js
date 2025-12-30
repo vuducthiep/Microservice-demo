@@ -25,6 +25,7 @@ const auth = {
     // Update auth link in header
     updateAuthLink() {
         const authLink = document.getElementById('auth-link');
+        const adminLink = document.getElementById('admin-link');
         if (!authLink) return;
 
         const user = this.getCurrentUser();
@@ -37,10 +38,16 @@ const auth = {
                     this.logout();
                 }
             };
+            if (adminLink) {
+                adminLink.style.display = user.role === 'ADMIN' ? 'inline-block' : 'none';
+            }
         } else {
             authLink.textContent = 'Đăng nhập';
             authLink.href = 'login.html';
             authLink.onclick = null;
+            if (adminLink) {
+                adminLink.style.display = 'none';
+            }
         }
     }
 };

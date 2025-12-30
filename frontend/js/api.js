@@ -75,6 +75,64 @@ const api = {
         const response = await fetch(`${ORDER_SERVICE_URL}/api/orders/user/${userId}`);
         if (!response.ok) throw new Error('Failed to fetch orders');
         return response.json();
+    },
+
+    // Admin: Books
+    async createBook(book) {
+        const response = await fetch(`${BOOK_SERVICE_URL}/api/books`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(book)
+        });
+        if (!response.ok) throw new Error('Failed to create book');
+        return response.json();
+    },
+
+    async updateBook(id, book) {
+        const response = await fetch(`${BOOK_SERVICE_URL}/api/books/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(book)
+        });
+        if (!response.ok) throw new Error('Failed to update book');
+        return response.json();
+    },
+
+    async deleteBook(id) {
+        const response = await fetch(`${BOOK_SERVICE_URL}/api/books/${id}`, { method: 'DELETE' });
+        if (!response.ok) throw new Error('Failed to delete book');
+    },
+
+    // Admin: Users
+    async getAllUsers() {
+        const response = await fetch(`${USER_SERVICE_URL}/api/users`);
+        if (!response.ok) throw new Error('Failed to fetch users');
+        return response.json();
+    },
+
+    async deleteUser(id) {
+        const response = await fetch(`${USER_SERVICE_URL}/api/users/${id}`, { method: 'DELETE' });
+        if (!response.ok) throw new Error('Failed to delete user');
+    },
+
+    // Admin: Orders
+    async getAllOrders() {
+        const response = await fetch(`${ORDER_SERVICE_URL}/api/orders`);
+        if (!response.ok) throw new Error('Failed to fetch orders');
+        return response.json();
+    },
+
+    async updateOrderStatus(id, status) {
+        const response = await fetch(`${ORDER_SERVICE_URL}/api/orders/${id}/status?status=${encodeURIComponent(status)}`, {
+            method: 'PUT'
+        });
+        if (!response.ok) throw new Error('Failed to update status');
+        return response.json();
+    },
+
+    async deleteOrder(id) {
+        const response = await fetch(`${ORDER_SERVICE_URL}/api/orders/${id}`, { method: 'DELETE' });
+        if (!response.ok) throw new Error('Failed to delete order');
     }
 };
 
