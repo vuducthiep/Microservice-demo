@@ -1,36 +1,38 @@
 // API Configuration
-const API_BASE_URL = 'https://api-gateway-production-637d.up.railway.app';
+const BOOK_SERVICE_URL = 'https://book-service-production-c5b7.up.railway.app';
+const USER_SERVICE_URL = 'https://user-service-production-02c9.up.railway.app';
+const ORDER_SERVICE_URL = 'https://order-service-production-bfde.up.railway.app';
 
 // API Helper Functions
 const api = {
     // Books API
     async getAllBooks() {
-        const response = await fetch(`${API_BASE_URL}/api/books`);
+        const response = await fetch(`${BOOK_SERVICE_URL}/api/books`);
         if (!response.ok) throw new Error('Failed to fetch books');
         return response.json();
     },
 
     async getBookById(id) {
-        const response = await fetch(`${API_BASE_URL}/api/books/${id}`);
+        const response = await fetch(`${BOOK_SERVICE_URL}/api/books/${id}`);
         if (!response.ok) throw new Error('Book not found');
         return response.json();
     },
 
     async getBooksByCategory(category) {
-        const response = await fetch(`${API_BASE_URL}/api/books/category/${category}`);
+        const response = await fetch(`${BOOK_SERVICE_URL}/api/books/category/${category}`);
         if (!response.ok) throw new Error('Failed to fetch books');
         return response.json();
     },
 
     async searchBooksByTitle(query) {
-        const response = await fetch(`${API_BASE_URL}/api/books/search/title?query=${encodeURIComponent(query)}`);
+        const response = await fetch(`${BOOK_SERVICE_URL}/api/books/search/title?query=${encodeURIComponent(query)}`);
         if (!response.ok) throw new Error('Search failed');
         return response.json();
     },
 
     // Users API
     async login(email, password) {
-        const response = await fetch(`${API_BASE_URL}/api/users/login`, {
+        const response = await fetch(`${USER_SERVICE_URL}/api/users/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -42,7 +44,7 @@ const api = {
     },
 
     async register(userData) {
-        const response = await fetch(`${API_BASE_URL}/api/users`, {
+        const response = await fetch(`${USER_SERVICE_URL}/api/users`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -58,7 +60,7 @@ const api = {
 
     // Orders API
     async createOrder(orderData) {
-        const response = await fetch(`${API_BASE_URL}/api/orders`, {
+        const response = await fetch(`${ORDER_SERVICE_URL}/api/orders`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -70,7 +72,7 @@ const api = {
     },
 
     async getOrdersByUserId(userId) {
-        const response = await fetch(`${API_BASE_URL}/api/orders/user/${userId}`);
+        const response = await fetch(`${ORDER_SERVICE_URL}/api/orders/user/${userId}`);
         if (!response.ok) throw new Error('Failed to fetch orders');
         return response.json();
     }
